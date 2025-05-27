@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://tpr3mtt5ced0"]
+
+[ext_resource type="Script" uid="uid://biqa54gxvfate" path="res://node_2d.gd" id="1_xs85p"]
+[ext_resource type="FontFile" uid="uid://cmewveog2qbd" path="res://Daydream.ttf" id="2_rb3lx"]
+[ext_resource type="Texture2D" uid="uid://ceqhg6l2givtp" path="res://spliced_1128x658.png" id="2_v5nnq"]
+[ext_resource type="Texture2D" uid="uid://dhnnymld30dra" path="res://bettertapioca.png" id="3_v5nnq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xs85p"]
+bg_color = Color(0.872547, 0.10439, 0.140138, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rb3lx"]
+bg_color = Color(0.508317, 0.154222, 0.172625, 1)
+
+[sub_resource type="Theme" id="Theme_emewn"]
+Button/styles/normal = SubResource("StyleBoxFlat_xs85p")
+Button/styles/pressed = SubResource("StyleBoxFlat_rb3lx")
+
+[sub_resource type="Theme" id="Theme_v5nnq"]
+RichTextLabel/font_sizes/normal_font_size = 30
+RichTextLabel/fonts/bold_font = null
+RichTextLabel/fonts/bold_italics_font = null
+RichTextLabel/fonts/italics_font = null
+RichTextLabel/fonts/mono_font = null
+RichTextLabel/fonts/normal_font = ExtResource("2_rb3lx")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_xs85p")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+modulate = Color(0.8, 0.8, 0.8, 0.647059)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 658.0
+texture = ExtResource("2_v5nnq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 608.0
+offset_right = 173.0
+offset_bottom = 648.0
+
+[node name="Mult" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+text = "Multi amount: 1"
+icon_alignment = 1
+
+[node name="MultBack" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(44.01, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_emewn")
+text = "back"
+icon_alignment = 1
+
+[node name="Auto" type="Button" parent="Control"]
+layout_mode = 1
+offset_left = 985.0
+offset_top = 591.0
+offset_right = 1150.0
+offset_bottom = 649.0
+toggle_mode = true
+text = "AutoBoom"
+icon_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+offset_right = 831.0
+offset_bottom = 53.0
+theme = SubResource("Theme_v5nnq")
+bbcode_enabled = true
+text = "[left] bobas gathered: 234"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="Control"]
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 43.0
+offset_top = -128.5
+offset_right = 345.0
+offset_bottom = 180.5
+grow_vertical = 2
+texture_normal = ExtResource("3_v5nnq")
+stretch_mode = 4
+
+[connection signal="pressed" from="Control/HBoxContainer/Mult" to="." method="_on_mult_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/MultBack" to="." method="_on_mult_back_pressed"]
+[connection signal="toggled" from="Control/Auto" to="." method="_on_auto_toggled"]
+[connection signal="timeout" from="Control/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Control/TextureButton" to="." method="_on_texture_button_pressed"]
