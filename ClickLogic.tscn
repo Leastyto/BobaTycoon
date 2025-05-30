@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://tpr3mtt5ced0"]
+[gd_scene load_steps=25 format=3 uid="uid://tpr3mtt5ced0"]
 
 [ext_resource type="Script" uid="uid://biqa54gxvfate" path="res://node_2d.gd" id="1_xs85p"]
 [ext_resource type="FontFile" uid="uid://cmewveog2qbd" path="res://Daydream.ttf" id="2_rb3lx"]
@@ -8,6 +8,14 @@
 [ext_resource type="FontFile" uid="uid://lm6k63tc872b" path="res://Nohemi-Medium.ttf" id="6_f7xku"]
 [ext_resource type="Texture2D" uid="uid://ddtujouojuvye" path="res://big_man_2.png" id="7_dqflq"]
 [ext_resource type="Texture2D" uid="uid://cpkv5omfeuexi" path="res://output-onlinepngtools_1.png" id="8_dqflq"]
+[ext_resource type="Texture2D" uid="uid://cbnk34pd0dbuq" path="res://output-onlinepngtools_2.png" id="9_c3alu"]
+[ext_resource type="Texture2D" uid="uid://ooc2r586rksh" path="res://output-onlinepngtools_3.png" id="10_7i56v"]
+[ext_resource type="Texture2D" uid="uid://dkgq4nfoeo832" path="res://output-onlinepngtools (4).png" id="11_7qejb"]
+[ext_resource type="Texture2D" uid="uid://dho6jk8u84io1" path="res://output-onlinepngtools (5).png" id="12_ah07c"]
+[ext_resource type="Texture2D" uid="uid://cheiyo74og1xw" path="res://New Project (3).png" id="13_w7gjr"]
+[ext_resource type="Texture2D" uid="uid://byk3btfpw8njv" path="res://asdfasdfasdfasdfasdf.png" id="14_wc774"]
+[ext_resource type="Texture2D" uid="uid://n8ujkqnlojx3" path="res://asdfasdfasdfasdfasdfasdfasdf.png" id="15_ip0l2"]
+[ext_resource type="Texture2D" uid="uid://dnuk0054fpi06" path="res://gedarfdsaf.png" id="16_ct3p1"]
 
 [sub_resource type="Theme" id="Theme_v5nnq"]
 RichTextLabel/font_sizes/normal_font_size = 30
@@ -16,16 +24,6 @@ RichTextLabel/fonts/bold_italics_font = null
 RichTextLabel/fonts/italics_font = null
 RichTextLabel/fonts/mono_font = null
 RichTextLabel/fonts/normal_font = ExtResource("2_rb3lx")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xs85p"]
-bg_color = Color(0.872547, 0.10439, 0.140138, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rb3lx"]
-bg_color = Color(0.508317, 0.154222, 0.172625, 1)
-
-[sub_resource type="Theme" id="Theme_emewn"]
-Button/styles/normal = SubResource("StyleBoxFlat_xs85p")
-Button/styles/pressed = SubResource("StyleBoxFlat_rb3lx")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqflq"]
 bg_color = Color(0.6, 0.6, 0.6, 0.486275)
@@ -104,36 +102,6 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 608.0
-offset_right = 173.0
-offset_bottom = 648.0
-
-[node name="Mult" type="Button" parent="Control/HBoxContainer"]
-layout_mode = 2
-text = "Multi amount: 1"
-icon_alignment = 1
-
-[node name="MultBack" type="Button" parent="Control/HBoxContainer"]
-custom_minimum_size = Vector2(44.01, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-theme = SubResource("Theme_emewn")
-text = "back"
-icon_alignment = 1
-
-[node name="Auto" type="Button" parent="Control"]
-layout_mode = 1
-offset_left = 225.0
-offset_top = 587.0
-offset_right = 390.0
-offset_bottom = 645.0
-toggle_mode = true
-text = "AutoBoom"
-icon_alignment = 1
 
 [node name="Timer" type="Timer" parent="Control"]
 autostart = true
@@ -266,7 +234,7 @@ layout_mode = 2
 theme = SubResource("Theme_06l15")
 text = "Vietnamese Man: 0
 Price: 250
-1 bps
+5 bps
 
 "
 scroll_active = false
@@ -295,11 +263,201 @@ scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 2
 
-[connection signal="pressed" from="Control/HBoxContainer/Mult" to="." method="_on_mult_pressed"]
-[connection signal="pressed" from="Control/HBoxContainer/MultBack" to="." method="_on_mult_back_pressed"]
-[connection signal="toggled" from="Control/Auto" to="." method="_on_auto_toggled"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(279.75, 65)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ABBBut" type="TextureButton" parent="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture_normal = ExtResource("9_c3alu")
+
+[node name="ABBBuy" type="RichTextLabel" parent="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(219.48, 0)
+layout_mode = 2
+theme = SubResource("Theme_06l15")
+text = "ABB: 0
+Price: 3000
+26 bps
+
+"
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Control/Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(279.75, 65)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShopBut" type="TextureButton" parent="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture_normal = ExtResource("10_7i56v")
+
+[node name="ShopBuy" type="RichTextLabel" parent="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(219.48, 0)
+layout_mode = 2
+theme = SubResource("Theme_06l15")
+text = "Franchise: 0
+Price: 10000
+53 bps
+
+"
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 2
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Control/Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(279.75, 65)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TempleBut" type="TextureButton" parent="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+texture_normal = ExtResource("11_7qejb")
+
+[node name="TempleBuy" type="RichTextLabel" parent="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(219.48, 0)
+layout_mode = 2
+theme = SubResource("Theme_06l15")
+text = "Temple: 0
+Price: 25000
+107 bps
+
+"
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 2
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Control/Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(279.75, 65)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ABGBut" type="TextureButton" parent="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+texture_normal = ExtResource("12_ah07c")
+
+[node name="ABGBuy" type="RichTextLabel" parent="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(219.48, 0)
+layout_mode = 2
+theme = SubResource("Theme_06l15")
+text = "ABG: 0
+Price: 200000
+Final Prize 👅👅
+
+"
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 2
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="Control/Panel"]
+offset_left = 328.0
+offset_top = 82.0
+offset_right = 627.0
+offset_bottom = 593.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/ScrollContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/ScrollContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(279.75, 65)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WagesBut" type="TextureButton" parent="Control/Panel/ScrollContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("13_w7gjr")
+
+[node name="WagesBuy" type="RichTextLabel" parent="Control/Panel/ScrollContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(219.48, 0)
+layout_mode = 2
+theme = SubResource("Theme_06l15")
+text = "Wages
+Price: 340
+Humans 2x
+
+"
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Panel/ScrollContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(279.75, 65)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BeltBut" type="TextureButton" parent="Control/Panel/ScrollContainer2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("14_wc774")
+
+[node name="BeltBuy" type="RichTextLabel" parent="Control/Panel/ScrollContainer2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(219.48, 0)
+layout_mode = 2
+theme = SubResource("Theme_06l15")
+text = "Reinforcement
+Price: 3000
+Children 7x
+"
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/Panel/ScrollContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(279.75, 65)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BookBut" type="TextureButton" parent="Control/Panel/ScrollContainer2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("15_ip0l2")
+
+[node name="BookBuy" type="RichTextLabel" parent="Control/Panel/ScrollContainer2/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(219.48, 0)
+layout_mode = 2
+theme = SubResource("Theme_06l15")
+text = "Education
+Price: 8000
+Humans 1.5x
+
+"
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/Panel/ScrollContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(279.75, 65)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LubeBut" type="TextureButton" parent="Control/Panel/ScrollContainer2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture_normal = ExtResource("16_ct3p1")
+
+[node name="LubeBuy" type="RichTextLabel" parent="Control/Panel/ScrollContainer2/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(219.48, 0)
+layout_mode = 2
+theme = SubResource("Theme_06l15")
+text = "Lubricant
+Price: 14000
+ABB+Robot 4x
+"
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 2
+
 [connection signal="timeout" from="Control/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Control/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer/VietBoyBut" to="." method="_on_viet_boy_but_pressed"]
 [connection signal="pressed" from="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer2/VietManBut" to="." method="_on_viet_man_but_pressed"]
 [connection signal="pressed" from="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer3/RobotBut" to="." method="_on_robot_but_pressed"]
+[connection signal="pressed" from="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer4/ABBBut" to="." method="_on_abb_but_pressed"]
+[connection signal="pressed" from="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer5/ShopBut" to="." method="_on_shop_but_pressed"]
+[connection signal="pressed" from="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer6/TempleBut" to="." method="_on_temple_but_pressed"]
+[connection signal="pressed" from="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer7/ABGBut" to="." method="_on_abg_but_pressed"]
+[connection signal="pressed" from="Control/Panel/ScrollContainer2/VBoxContainer/HBoxContainer/WagesBut" to="." method="_on_wages_but_pressed"]
+[connection signal="pressed" from="Control/Panel/ScrollContainer2/VBoxContainer/HBoxContainer2/BeltBut" to="." method="_on_belt_but_pressed"]
+[connection signal="pressed" from="Control/Panel/ScrollContainer2/VBoxContainer/HBoxContainer3/BookBut" to="." method="_on_book_but_pressed"]
+[connection signal="pressed" from="Control/Panel/ScrollContainer2/VBoxContainer/HBoxContainer4/LubeBut" to="." method="_on_lube_but_pressed"]
