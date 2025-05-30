@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csfnhvp62wohp"
-path="res://.godot/imported/Tapioca.png-42ffbfbec9085066e8846a0799575073.ctex"
+uid="uid://dvt1rlhoa3jlp"
+path="res://.godot/imported/boba.png-42dc5acf13a6a7c0b72d73b24d576620.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tapioca.png"
-dest_files=["res://.godot/imported/Tapioca.png-42ffbfbec9085066e8846a0799575073.ctex"]
+source_file="res://boba.png"
+dest_files=["res://.godot/imported/boba.png-42dc5acf13a6a7c0b72d73b24d576620.ctex"]
 
 [params]
 
