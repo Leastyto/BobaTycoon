@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://biqa54gxvfate" path="res://node_2d.gd" id="1_xs85p"]
 [ext_resource type="FontFile" uid="uid://cmewveog2qbd" path="res://Daydream.ttf" id="2_rb3lx"]
 [ext_resource type="Texture2D" uid="uid://ceqhg6l2givtp" path="res://spliced_1128x658.png" id="2_v5nnq"]
-[ext_resource type="Texture2D" uid="uid://dhnnymld30dra" path="res://bettertapioca.png" id="3_v5nnq"]
+[ext_resource type="Texture2D" uid="uid://dvt1rlhoa3jlp" path="res://boba.png" id="4_v5nnq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xs85p"]
 bg_color = Color(0.872547, 0.10439, 0.140138, 1)
@@ -93,7 +93,7 @@ offset_top = -128.5
 offset_right = 345.0
 offset_bottom = 180.5
 grow_vertical = 2
-texture_normal = ExtResource("3_v5nnq")
+texture_normal = ExtResource("4_v5nnq")
 stretch_mode = 4
 
 [connection signal="pressed" from="Control/HBoxContainer/Mult" to="." method="_on_mult_pressed"]
