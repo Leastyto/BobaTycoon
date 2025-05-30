@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://tpr3mtt5ced0"]
+[gd_scene load_steps=26 format=3 uid="uid://tpr3mtt5ced0"]
 
 [ext_resource type="Script" uid="uid://biqa54gxvfate" path="res://node_2d.gd" id="1_xs85p"]
 [ext_resource type="FontFile" uid="uid://cmewveog2qbd" path="res://Daydream.ttf" id="2_rb3lx"]
@@ -24,6 +24,9 @@ RichTextLabel/fonts/bold_italics_font = null
 RichTextLabel/fonts/italics_font = null
 RichTextLabel/fonts/mono_font = null
 RichTextLabel/fonts/normal_font = ExtResource("2_rb3lx")
+
+[sub_resource type="Theme" id="Theme_w7gjr"]
+RichTextLabel/fonts/normal_font = ExtResource("6_f7xku")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqflq"]
 bg_color = Color(0.6, 0.6, 0.6, 0.486275)
@@ -102,6 +105,16 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Rate" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_top = 132.0
+offset_right = 493.0
+offset_bottom = 172.0
+theme = SubResource("Theme_w7gjr")
+bbcode_enabled = true
+text = "[center] Rate = 0 Bobas per Second (BPS)"
+horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="Control"]
 autostart = true
@@ -210,7 +223,7 @@ texture_normal = ExtResource("5_f7xku")
 custom_minimum_size = Vector2(219.48, 0)
 layout_mode = 2
 theme = SubResource("Theme_06l15")
-text = "Vietnamese Boy: 120
+text = "Vietnamese Boy: 0
 Price: 50
 1 bps
 
@@ -299,8 +312,8 @@ custom_minimum_size = Vector2(219.48, 0)
 layout_mode = 2
 theme = SubResource("Theme_06l15")
 text = "Franchise: 0
-Price: 10000
-53 bps
+Price: 25000
+513 bps
 
 "
 scroll_active = false
@@ -321,8 +334,8 @@ custom_minimum_size = Vector2(219.48, 0)
 layout_mode = 2
 theme = SubResource("Theme_06l15")
 text = "Temple: 0
-Price: 25000
-107 bps
+Price: 200000
+3157 bps
 
 "
 scroll_active = false
@@ -343,7 +356,7 @@ custom_minimum_size = Vector2(219.48, 0)
 layout_mode = 2
 theme = SubResource("Theme_06l15")
 text = "ABG: 0
-Price: 200000
+Price: 50M
 Final Prize 👅👅
 
 "
@@ -441,7 +454,7 @@ custom_minimum_size = Vector2(219.48, 0)
 layout_mode = 2
 theme = SubResource("Theme_06l15")
 text = "Lubricant
-Price: 14000
+Price: 50000
 ABB+Robot 4x
 "
 scroll_active = false
