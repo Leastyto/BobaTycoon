@@ -97,7 +97,7 @@ offset_right = 495.0
 offset_bottom = 140.0
 theme = SubResource("Theme_v5nnq")
 bbcode_enabled = true
-text = "[center] bobas: 7.777e77"
+text = "[center] bobas: 0"
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
@@ -382,7 +382,7 @@ Humans 2x
 "
 scroll_active = false
 autowrap_mode = 0
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/Panel/ScrollContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(279.75, 65)
@@ -403,7 +403,7 @@ Children 7x
 "
 scroll_active = false
 autowrap_mode = 0
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Control/Panel/ScrollContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(279.75, 65)
@@ -425,7 +425,7 @@ Humans 1.5x
 "
 scroll_active = false
 autowrap_mode = 0
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="Control/Panel/ScrollContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(279.75, 65)
@@ -446,7 +446,7 @@ ABB+Robot 4x
 "
 scroll_active = false
 autowrap_mode = 0
-vertical_alignment = 2
+vertical_alignment = 1
 
 [connection signal="timeout" from="Control/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Control/TextureButton" to="." method="_on_texture_button_pressed"]

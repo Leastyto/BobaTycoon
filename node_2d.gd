@@ -17,7 +17,7 @@ extends Node2D
 @onready var lube_buy: RichTextLabel = $Control/Panel/ScrollContainer2/VBoxContainer/HBoxContainer4/LubeBuy
 
 
-var bobas:int = 10000000
+var bobas:int = 0
 var autoEnable:bool = false
 var multiAmount:int = 1
 var VietBoyPrice:int = 50
@@ -46,7 +46,7 @@ func _on_timer_timeout():
 	bobas += (VietBoyOwn*human_multiplier*child_multiplier)+(VietManOwn*human_multiplier*5)+(RobotOwn*19*rob_abb_multiplier)+(ABBOwn*26*rob_abb_multiplier*human_multiplier)+(ShopOwn*53)+(TempleOwn*107)
 
 func _on_texture_button_pressed():
-	bobas += multiAmount
+	bobas += multiAmount*child_multiplier*human_multiplier
 
 func _on_viet_boy_but_pressed():
 	if bobas >= VietBoyPrice:
