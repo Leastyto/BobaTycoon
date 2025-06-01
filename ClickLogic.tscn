@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://tpr3mtt5ced0"]
+[gd_scene load_steps=29 format=3 uid="uid://tpr3mtt5ced0"]
 
 [ext_resource type="Script" uid="uid://biqa54gxvfate" path="res://node_2d.gd" id="1_xs85p"]
 [ext_resource type="FontFile" uid="uid://cmewveog2qbd" path="res://Daydream.ttf" id="2_rb3lx"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://byk3btfpw8njv" path="res://asdfasdfasdfasdfasdf.png" id="14_wc774"]
 [ext_resource type="Texture2D" uid="uid://n8ujkqnlojx3" path="res://asdfasdfasdfasdfasdfasdfasdf.png" id="15_ip0l2"]
 [ext_resource type="Texture2D" uid="uid://dnuk0054fpi06" path="res://gedarfdsaf.png" id="16_ct3p1"]
+[ext_resource type="AudioStream" uid="uid://clf17xf0bucav" path="res://BobaClick.wav" id="17_wc774"]
+[ext_resource type="AudioStream" uid="uid://pjk74tt8fmn3" path="res://DoubleClick.wav" id="18_ip0l2"]
 
 [sub_resource type="Theme" id="Theme_v5nnq"]
 RichTextLabel/font_sizes/normal_font_size = 30
@@ -27,6 +29,11 @@ RichTextLabel/fonts/normal_font = ExtResource("2_rb3lx")
 
 [sub_resource type="Theme" id="Theme_w7gjr"]
 RichTextLabel/fonts/normal_font = ExtResource("6_f7xku")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wc774"]
+random_pitch = 1.09
+streams_count = 1
+stream_0/stream = ExtResource("17_wc774")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqflq"]
 bg_color = Color(0.6, 0.6, 0.6, 0.486275)
@@ -85,7 +92,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
-modulate = Color(0.8, 0.8, 0.8, 0.647059)
+modulate = Color(1, 1, 1, 0.803922)
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 658.0
@@ -117,9 +124,8 @@ text = "[center] Rate = 0 Bobas per Second (BPS)"
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="Control"]
-autostart = true
 
-[node name="TextureButton" type="TextureButton" parent="Control"]
+[node name="BobaButton" type="TextureButton" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -132,8 +138,13 @@ offset_right = -168.0
 offset_bottom = 171.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(150, 150)
 texture_normal = ExtResource("4_v5nnq")
 stretch_mode = 4
+
+[node name="clicknoise" type="AudioStreamPlayer" parent="Control/BobaButton"]
+stream = SubResource("AudioStreamRandomizer_wc774")
+volume_db = -24.626
 
 [node name="Panel" type="Panel" parent="Control"]
 self_modulate = Color(0.35, 0.14, 0, 1)
@@ -334,7 +345,7 @@ custom_minimum_size = Vector2(219.48, 0)
 layout_mode = 2
 theme = SubResource("Theme_06l15")
 text = "Temple: 0
-Price: 200000
+Price: 2000000
 3157 bps
 
 "
@@ -365,6 +376,7 @@ autowrap_mode = 0
 vertical_alignment = 2
 
 [node name="ScrollContainer2" type="ScrollContainer" parent="Control/Panel"]
+layout_mode = 0
 offset_left = 328.0
 offset_top = 82.0
 offset_right = 627.0
@@ -461,8 +473,13 @@ scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("18_ip0l2")
+volume_db = -19.895
+
 [connection signal="timeout" from="Control/Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="Control/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="button_down" from="Control/BobaButton" to="." method="_on_boba_button_button_down"]
+[connection signal="button_up" from="Control/BobaButton" to="." method="_on_boba_button_button_up"]
 [connection signal="pressed" from="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer/VietBoyBut" to="." method="_on_viet_boy_but_pressed"]
 [connection signal="pressed" from="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer2/VietManBut" to="." method="_on_viet_man_but_pressed"]
 [connection signal="pressed" from="Control/Panel/ScrollContainer/VBoxContainer/HBoxContainer3/RobotBut" to="." method="_on_robot_but_pressed"]

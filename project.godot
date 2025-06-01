@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="BOBA TYCOON"
-run/main_scene="uid://tpr3mtt5ced0"
+run/main_scene="uid://cge7wxrjg2u1a"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [editor]
 

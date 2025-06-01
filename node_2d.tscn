@@ -1,0 +1,155 @@
+[gd_scene load_steps=14 format=3 uid="uid://cge7wxrjg2u1a"]
+
+[ext_resource type="Script" uid="uid://x12rym2jj4dk" path="res://menu.gd" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://ceqhg6l2givtp" path="res://spliced_1128x658.png" id="2_0e48y"]
+[ext_resource type="FontFile" uid="uid://cocws713ma2us" path="res://GrapeSoda.ttf" id="3_epypp"]
+[ext_resource type="StyleBox" uid="uid://cy1v0kqx0ntj4" path="res://Normal.tres" id="4_0hol4"]
+[ext_resource type="StyleBox" uid="uid://c6hf4faxfr4mh" path="res://Focus.tres" id="4_d21ai"]
+[ext_resource type="StyleBox" uid="uid://cwcsdfet6yano" path="res://Hover.tres" id="5_rj586"]
+[ext_resource type="StyleBox" uid="uid://c8n30xx5om1u7" path="res://Pressed.tres" id="6_4d7sh"]
+
+[sub_resource type="Theme" id="Theme_0hol4"]
+RichTextLabel/font_sizes/normal_font_size = 150
+RichTextLabel/fonts/normal_font = ExtResource("3_epypp")
+
+[sub_resource type="Theme" id="Theme_epypp"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 70
+Button/fonts/font = ExtResource("3_epypp")
+
+[sub_resource type="Theme" id="Theme_q6r6c"]
+Button/font_sizes/font_size = 70
+Button/fonts/font = ExtResource("3_epypp")
+
+[sub_resource type="Animation" id="Animation_d21ai"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_kdubu"]
+resource_name = "Title Sway"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667, 2, 10.2333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.0349066, 0.0349066, -0.0349066, -0.0523599]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rj586"]
+_data = {
+&"RESET": SubResource("Animation_d21ai"),
+&"Title Sway": SubResource("Animation_kdubu")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_0e48y")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 647.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+self_modulate = Color(1, 1, 1, 0.835294)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 658.0
+texture = ExtResource("2_0e48y")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/TextureRect"]
+custom_minimum_size = Vector2(865.32, 128.235)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.66
+offset_top = -263.117
+offset_right = 432.66
+offset_bottom = -134.882
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(432.66, 75.495)
+theme = SubResource("Theme_0hol4")
+text = "Boba Clicker!"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="Button" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.5
+offset_top = -41.5
+offset_right = 255.5
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(255.505, 42.5)
+theme = SubResource("Theme_epypp")
+theme_override_styles/focus = ExtResource("4_d21ai")
+theme_override_styles/hover_pressed = ExtResource("5_rj586")
+theme_override_styles/hover = ExtResource("5_rj586")
+theme_override_styles/pressed = ExtResource("6_4d7sh")
+theme_override_styles/normal = ExtResource("4_0hol4")
+text = "Start Game"
+
+[node name="Settings" type="Button" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.5
+offset_top = 92.5
+offset_right = 255.5
+offset_bottom = 177.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(255.505, 42.5)
+theme = SubResource("Theme_q6r6c")
+theme_override_styles/focus = ExtResource("4_d21ai")
+theme_override_styles/hover_pressed = ExtResource("5_rj586")
+theme_override_styles/hover = ExtResource("5_rj586")
+theme_override_styles/pressed = ExtResource("6_4d7sh")
+theme_override_styles/normal = ExtResource("4_0hol4")
+text = "Settings"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/TextureRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_rj586")
+}
+autoplay = "Title Sway"
+speed_scale = 0.87
+
+[connection signal="button_down" from="Control/TextureRect/Menu" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Control/TextureRect/Menu" to="." method="_on_menu_button_up"]
+[connection signal="button_down" from="Control/TextureRect/Settings" to="." method="_on_settings_button_down"]
+[connection signal="button_up" from="Control/TextureRect/Settings" to="." method="_on_settings_button_up"]
