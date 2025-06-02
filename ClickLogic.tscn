@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://tpr3mtt5ced0"]
+[gd_scene load_steps=42 format=3 uid="uid://tpr3mtt5ced0"]
 
 [ext_resource type="Script" uid="uid://biqa54gxvfate" path="res://node_2d.gd" id="1_xs85p"]
 [ext_resource type="FontFile" uid="uid://cmewveog2qbd" path="res://Daydream.ttf" id="2_rb3lx"]
@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://d23441xtsiggc" path="res://9. verisimilitudinous valley.mp3" id="24_pufdl"]
 [ext_resource type="AudioStream" uid="uid://h1wlnk8mhrl7" path="res://11. enamoring eventide.mp3" id="25_mxkbr"]
 [ext_resource type="AudioStream" uid="uid://6sijf73k8fjn" path="res://14. reflective river.mp3" id="26_6iojk"]
+[ext_resource type="FontFile" uid="uid://cocws713ma2us" path="res://GrapeSoda.ttf" id="27_5n2e4"]
 
 [sub_resource type="Theme" id="Theme_v5nnq"]
 RichTextLabel/font_sizes/normal_font_size = 30
@@ -101,6 +102,18 @@ stream_4 = ExtResource("23_qf3n5")
 stream_5 = ExtResource("24_pufdl")
 stream_6 = ExtResource("25_mxkbr")
 stream_7 = ExtResource("26_6iojk")
+
+[sub_resource type="Theme" id="Theme_yk570"]
+Label/font_sizes/font_size = 26
+Label/fonts/font = ExtResource("27_5n2e4")
+
+[sub_resource type="Animation" id="Animation_5n2e4"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yk570"]
+_data = {
+&"new_animation": SubResource("Animation_5n2e4")
+}
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_xs85p")
@@ -503,6 +516,20 @@ stream = SubResource("AudioStreamPlaylist_v3tc5")
 volume_db = -5.0
 autoplay = true
 bus = &"Music"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 621.0
+offset_right = 291.0
+offset_bottom = 648.0
+theme = SubResource("Theme_yk570")
+text = "Press ESC to go to Settings"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Label"]
+libraries = {
+&"": SubResource("AnimationLibrary_yk570")
+}
 
 [connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]
 [connection signal="timeout" from="Control/Timer" to="." method="_on_timer_timeout"]
