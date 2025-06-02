@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xmo10hd1nvcs"
+path="res://.godot/imported/6. plucky park.mp3-34a4d48f9a54152bf8bee232e7f67778.mp3str"
+
+[deps]
+
+source_file="res://6. plucky park.mp3"
+dest_files=["res://.godot/imported/6. plucky park.mp3-34a4d48f9a54152bf8bee232e7f67778.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

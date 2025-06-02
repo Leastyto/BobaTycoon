@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://tpr3mtt5ced0"]
+[gd_scene load_steps=38 format=3 uid="uid://tpr3mtt5ced0"]
 
 [ext_resource type="Script" uid="uid://biqa54gxvfate" path="res://node_2d.gd" id="1_xs85p"]
 [ext_resource type="FontFile" uid="uid://cmewveog2qbd" path="res://Daydream.ttf" id="2_rb3lx"]
@@ -18,6 +18,14 @@
 [ext_resource type="Texture2D" uid="uid://dnuk0054fpi06" path="res://gedarfdsaf.png" id="16_ct3p1"]
 [ext_resource type="AudioStream" uid="uid://clf17xf0bucav" path="res://BobaClick.wav" id="17_wc774"]
 [ext_resource type="AudioStream" uid="uid://pjk74tt8fmn3" path="res://DoubleClick.wav" id="18_ip0l2"]
+[ext_resource type="AudioStream" uid="uid://bbglsw1dlc1ii" path="res://1. hellacious hilltops.mp3" id="19_as6c7"]
+[ext_resource type="AudioStream" uid="uid://djplj70afu7iq" path="res://2. kickback kroose.mp3" id="20_5n2e4"]
+[ext_resource type="AudioStream" uid="uid://dgr82yxf7j1hh" path="res://3. compassionate cafe.mp3" id="21_yk570"]
+[ext_resource type="AudioStream" uid="uid://dkg07f6m0cuk6" path="res://4. mediocre mall.mp3" id="22_ggmq3"]
+[ext_resource type="AudioStream" uid="uid://cpih3s6nmu42x" path="res://5. distant dunes.mp3" id="23_qf3n5"]
+[ext_resource type="AudioStream" uid="uid://d23441xtsiggc" path="res://9. verisimilitudinous valley.mp3" id="24_pufdl"]
+[ext_resource type="AudioStream" uid="uid://h1wlnk8mhrl7" path="res://11. enamoring eventide.mp3" id="25_mxkbr"]
+[ext_resource type="AudioStream" uid="uid://6sijf73k8fjn" path="res://14. reflective river.mp3" id="26_6iojk"]
 
 [sub_resource type="Theme" id="Theme_v5nnq"]
 RichTextLabel/font_sizes/normal_font_size = 30
@@ -82,6 +90,18 @@ Label/fonts/font = ExtResource("2_rb3lx")
 RichTextLabel/font_sizes/normal_font_size = 22
 RichTextLabel/fonts/normal_font = ExtResource("6_f7xku")
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_v3tc5"]
+shuffle = true
+stream_count = 8
+stream_0 = ExtResource("19_as6c7")
+stream_1 = ExtResource("20_5n2e4")
+stream_2 = ExtResource("21_yk570")
+stream_3 = ExtResource("22_ggmq3")
+stream_4 = ExtResource("23_qf3n5")
+stream_5 = ExtResource("24_pufdl")
+stream_6 = ExtResource("25_mxkbr")
+stream_7 = ExtResource("26_6iojk")
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_xs85p")
 
@@ -144,7 +164,7 @@ stretch_mode = 4
 
 [node name="clicknoise" type="AudioStreamPlayer" parent="Control/BobaButton"]
 stream = SubResource("AudioStreamRandomizer_wc774")
-volume_db = -24.626
+bus = &"SFX"
 
 [node name="Panel" type="Panel" parent="Control"]
 self_modulate = Color(0.35, 0.14, 0, 1)
@@ -476,7 +496,15 @@ vertical_alignment = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
 stream = ExtResource("18_ip0l2")
 volume_db = -19.895
+bus = &"SFX"
 
+[node name="GamrMusicPlayer" type="AudioStreamPlayer" parent="Control"]
+stream = SubResource("AudioStreamPlaylist_v3tc5")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+
+[connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]
 [connection signal="timeout" from="Control/Timer" to="." method="_on_timer_timeout"]
 [connection signal="button_down" from="Control/BobaButton" to="." method="_on_boba_button_button_down"]
 [connection signal="button_up" from="Control/BobaButton" to="." method="_on_boba_button_button_up"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djplj70afu7iq"
+path="res://.godot/imported/2. kickback kroose.mp3-2d5d7df4e28dd3059611a7f411ba4a24.mp3str"
+
+[deps]
+
+source_file="res://2. kickback kroose.mp3"
+dest_files=["res://.godot/imported/2. kickback kroose.mp3-2d5d7df4e28dd3059611a7f411ba4a24.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

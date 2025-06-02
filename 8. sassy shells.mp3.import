@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dsy8gu2fbywio"
+path="res://.godot/imported/8. sassy shells.mp3-c68e510a8e593ced0e2954319d1476ef.mp3str"
+
+[deps]
+
+source_file="res://8. sassy shells.mp3"
+dest_files=["res://.godot/imported/8. sassy shells.mp3-c68e510a8e593ced0e2954319d1476ef.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

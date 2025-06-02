@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dgr82yxf7j1hh"
+path="res://.godot/imported/3. compassionate cafe.mp3-496715e2cba2093230475e9d168d4303.mp3str"
+
+[deps]
+
+source_file="res://3. compassionate cafe.mp3"
+dest_files=["res://.godot/imported/3. compassionate cafe.mp3-496715e2cba2093230475e9d168d4303.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

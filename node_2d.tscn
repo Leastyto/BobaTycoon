@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cge7wxrjg2u1a"]
+[gd_scene load_steps=22 format=3 uid="uid://cge7wxrjg2u1a"]
 
 [ext_resource type="Script" uid="uid://x12rym2jj4dk" path="res://menu.gd" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://ceqhg6l2givtp" path="res://spliced_1128x658.png" id="2_0e48y"]
@@ -7,6 +7,13 @@
 [ext_resource type="StyleBox" uid="uid://c6hf4faxfr4mh" path="res://Focus.tres" id="4_d21ai"]
 [ext_resource type="StyleBox" uid="uid://cwcsdfet6yano" path="res://Hover.tres" id="5_rj586"]
 [ext_resource type="StyleBox" uid="uid://c8n30xx5om1u7" path="res://Pressed.tres" id="6_4d7sh"]
+[ext_resource type="AudioStream" uid="uid://bkn5rowrl0vb7" path="res://addons/down.mp3" id="8_4d7sh"]
+[ext_resource type="AudioStream" uid="uid://fe1j22om65md" path="res://addons/up.mp3" id="9_ir8iy"]
+[ext_resource type="AudioStream" uid="uid://pjk74tt8fmn3" path="res://DoubleClick.wav" id="10_ir8iy"]
+[ext_resource type="AudioStream" uid="uid://xmo10hd1nvcs" path="res://6. plucky park.mp3" id="11_nr8wp"]
+[ext_resource type="AudioStream" uid="uid://dlljqga2kvmwm" path="res://7. sarcastic shop.mp3" id="12_d2bti"]
+[ext_resource type="AudioStream" uid="uid://dsy8gu2fbywio" path="res://8. sassy shells.mp3" id="13_ta5nu"]
+[ext_resource type="AudioStream" uid="uid://dkr3q1xjw1acf" path="res://10. nocturnal knoll.mp3" id="14_flf07"]
 
 [sub_resource type="Theme" id="Theme_0hol4"]
 RichTextLabel/font_sizes/normal_font_size = 150
@@ -15,10 +22,11 @@ RichTextLabel/fonts/normal_font = ExtResource("3_epypp")
 [sub_resource type="Theme" id="Theme_epypp"]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_hover_color = Color(1, 1, 1, 1)
-Button/font_sizes/font_size = 70
+Button/font_sizes/font_size = 68
 Button/fonts/font = ExtResource("3_epypp")
 
 [sub_resource type="Theme" id="Theme_q6r6c"]
+Button/colors/font_color = Color(1, 1, 1, 1)
 Button/font_sizes/font_size = 70
 Button/fonts/font = ExtResource("3_epypp")
 
@@ -59,6 +67,14 @@ _data = {
 &"RESET": SubResource("Animation_d21ai"),
 &"Title Sway": SubResource("Animation_kdubu")
 }
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_k73cj"]
+shuffle = true
+stream_count = 4
+stream_0 = ExtResource("11_nr8wp")
+stream_1 = ExtResource("12_d2bti")
+stream_2 = ExtResource("13_ta5nu")
+stream_3 = ExtResource("14_flf07")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_0e48y")
@@ -149,7 +165,30 @@ libraries = {
 autoplay = "Title Sway"
 speed_scale = 0.87
 
+[node name="down" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("8_4d7sh")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="up" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("9_ir8iy")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="both" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("10_ir8iy")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="menumusic" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_k73cj")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+
 [connection signal="button_down" from="Control/TextureRect/Menu" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Control/TextureRect/Menu" to="." method="_on_menu_button_up"]
+[connection signal="pressed" from="Control/TextureRect/Menu" to="." method="_on_menu_pressed"]
 [connection signal="button_down" from="Control/TextureRect/Settings" to="." method="_on_settings_button_down"]
 [connection signal="button_up" from="Control/TextureRect/Settings" to="." method="_on_settings_button_up"]
+[connection signal="pressed" from="Control/TextureRect/Settings" to="." method="_on_settings_pressed"]
